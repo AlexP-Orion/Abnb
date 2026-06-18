@@ -11,5 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Abnb.ServiceDefaults\Abnb.ServiceDefaults.csproj" />
   </ItemGroup>
 </Project>

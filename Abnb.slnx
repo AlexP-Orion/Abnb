@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/api/" />
+  <Project Path="Abnb.AppHost/Abnb.AppHost.csproj" />
+  <Project Path="Abnb.ServiceDefaults/Abnb.ServiceDefaults.csproj" />
   <Project Path="Api/Api.csproj" />
   <Project Path="Application/Application.csproj" />
   <Project Path="Domain/Domain.csproj" />
