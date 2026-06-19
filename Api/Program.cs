@@ -1,4 +1,5 @@
 using Application.Departamentos.Queries;
+using Domain;
 using Infrastructure;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.AddServiceDefaults();
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructure();
 builder.Services.AddScoped<IDepartamentoGetAll, DepartamentoGetAll>();
@@ -25,9 +27,9 @@ if (app.Environment.IsDevelopment())
     if (!dbContext.Departamentos.Any())
     {
         dbContext.Departamentos.AddRange(
-            new Domain.Departamento { Nombre = "Departamento 1" },
-            new Domain.Departamento { Nombre = "Departamento 2" },
-            new Domain.Departamento { Nombre = "Departamento 3" }
+            new Departamento { Nombre = new Nombre("Departamento 1") },
+            new Departamento { Nombre = new Nombre("Departamento 2") },
+            new Departamento { Nombre = new Nombre("Departamento 3") }
         );
         dbContext.SaveChanges();
     }

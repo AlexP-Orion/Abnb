@@ -23,7 +23,7 @@ public class DepartamentoGetById : IDepartamentoGetById
         {
             return null;
         }
-        return new DepartamentoGetByIdDto(departamento.Id, departamento.Nombre);
+        return new DepartamentoGetByIdDto(departamento.Id, departamento.Nombre.Value);
     }
 }
 
