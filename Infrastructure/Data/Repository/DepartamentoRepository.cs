@@ -1,38 +1,46 @@
 using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.Repository;
 
 public class DepartamentoRepository : IDepartamentoRepository
 {
-    public Task AddAsync(Departamento departamento)
+    private readonly ApplicationContext _context;
+
+    public DepartamentoRepository(ApplicationContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task DeleteAsync(int id)
+    public async Task AddAsync(Departamento departamento)
     {
-        throw new NotImplementedException();
+        await _context.Departamentos.AddAsync(departamento);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        var departamento = await _context.Departamentos.FindAsync(id);
+        if (departamento != null)
+        {
+            _context.Departamentos.Remove(departamento);
+            await _context.SaveChangesAsync();
+        }
     }
 
     public async Task<List<Departamento>> GetAllAsync()
     {
-        return await Task.FromResult(
-            new List<Departamento>
-            {
-                new() { Id = 1, Nombre = "Recursos Humanos" },
-                new() { Id = 2, Nombre = "Finanzas" },
-                new() { Id = 3, Nombre = "Tecnología" },
-            }
-        );
+        return await _context.Departamentos.ToListAsync();
     }
 
-    public Task<Departamento?> GetByIdAsync(int id)
+    public async Task<Departamento?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Departamentos.FindAsync(id);
     }
 
-    public Task UpdateAsync(Departamento departamento)
+    public async Task UpdateAsync(Departamento departamento)
     {
-        throw new NotImplementedException();
+        _context.Departamentos.Update(departamento);
+        await _context.SaveChangesAsync();
     }
 }
