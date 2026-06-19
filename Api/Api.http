@@ -4,3 +4,5 @@ GET {{Api_HostAddress}}/departamentos
 Accept: application/json
 
 ###
+GET {{Api_HostAddress}}/departamentos/2
+Accept: application/json
