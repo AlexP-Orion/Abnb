@@ -19,7 +19,7 @@ public class DepartamentoGetAll : IDepartamentoGetAll
     public async Task<IList<DepartamentoGetAllDto>> Execute()
     {
         var departamentos = await _repositoryDepartamento.GetAllAsync();
-        return departamentos.Select(d => new DepartamentoGetAllDto(d.Id, d.Nombre)).ToList();
+        return departamentos.Select(d => new DepartamentoGetAllDto(d.Id, d.Nombre.Value)).ToList();
     }
 }
 

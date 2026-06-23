@@ -1,4 +1,5 @@
 using Application.Departamentos.Queries;
+using Domain;
 using Infrastructure;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,9 @@ if (app.Environment.IsDevelopment())
     if (!dbContext.Departamentos.Any())
     {
         dbContext.Departamentos.AddRange(
-            new Domain.Departamento { Nombre = "Departamento 1" },
-            new Domain.Departamento { Nombre = "Departamento 2" },
-            new Domain.Departamento { Nombre = "Departamento 3" }
+            new Domain.Departamento { Nombre = new Nombre("Departamento 1") },
+            new Domain.Departamento { Nombre = new Nombre("Departamento 2") },
+            new Domain.Departamento { Nombre = new Nombre("Departamento 3") }
         );
         dbContext.SaveChanges();
     }

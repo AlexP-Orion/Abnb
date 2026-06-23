@@ -1,10 +1,15 @@
-﻿namespace Domain;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain;
 
 public class Departamento
 {
     public int Id { get; set; }
-    public string Nombre { get; set; } = string.Empty;
+    public Nombre Nombre { get; set; } = new Nombre(string.Empty);
 }
+
+[NotMapped]
+public record Nombre(string Value);
 
 public interface IDepartamentoRepository
 {
