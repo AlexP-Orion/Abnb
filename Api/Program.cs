@@ -20,6 +20,15 @@ if (app.Environment.IsDevelopment())
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
     dbContext.Database.EnsureDeleted();
     dbContext.Database.EnsureCreated();
+    if (!dbContext.Departamentos.Any())
+    {
+        dbContext.Departamentos.AddRange(
+            new Domain.Departamento { Nombre = "Departamento 1" },
+            new Domain.Departamento { Nombre = "Departamento 2" },
+            new Domain.Departamento { Nombre = "Departamento 3" }
+        );
+        dbContext.SaveChanges();
+    }
 }
 
 app.MapGet(
