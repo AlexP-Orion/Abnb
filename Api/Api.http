@@ -1,8 +1,0 @@
-@Api_HostAddress = http://localhost:5078
-
-GET {{Api_HostAddress}}/departamentos
-Accept: application/json
-
-###
-GET {{Api_HostAddress}}/departamentos/2
-Accept: application/json
