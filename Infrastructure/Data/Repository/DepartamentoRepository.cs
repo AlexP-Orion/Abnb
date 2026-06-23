@@ -1,5 +1,6 @@
 using Domain;
-
+using Microsoft.EntityFrameworkCore;
+    
 namespace Infrastructure.Data.Repository;
 
 public class DepartamentoRepository : IDepartamentoRepository
