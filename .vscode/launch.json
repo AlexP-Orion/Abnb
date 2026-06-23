@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "C#: Depurar archivo activo",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${file}"
+        }
+    ]
+}
